@@ -2,10 +2,10 @@
         
       <div class="panel panel-default" id="formStuff">
           <div>
-            <h3 class="subDiv"><strong>Submit a new link</strong></h3>
+            <h3 class="subDiv"><a class="subDiva" href="/posts"><strong>Submit a new link</strong></a></h3>
           </div>
           <div>
-            <h3 class="subDiv"><strong>Submit a new text post</strong></h3>
+            <h3 class="subDiv"><a class="subDiva" href="/posts"><strong>Submit a new text post</strong></a></h3>
           </div>
       </div>
         
@@ -60,7 +60,7 @@
               <div class="pic">
                   <img src="https://upload.wikimedia.org/wikipedia/en/8/84/AtlasShrugged.jpg">
               </div>
-              <h3 id="aShrugged"><%= post.title %></h3>
+              <h3 id="aShrugged"><a href="/show/<%= post._id%>"><%= post.title %></a></h3>
               <p><%= post.content %></p>
             </div>  
         </div>

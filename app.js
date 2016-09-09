@@ -47,6 +47,19 @@ app.post("/", function(req, res){
     
 });
 
+app.get("/show/:id", function(req, res) {
+    Post.findById(req.params.id, function(err, foundPost){
+        if(err){
+            console.log(err);
+        }
+        else {
+            res.render("show", {post: foundPost});
+        }
+    });
+});
+
+
+
 
 app.get("*", function(req, res) {
     res.send("Page not found!");

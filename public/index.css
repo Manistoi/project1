@@ -28,6 +28,7 @@
 
 .subDiv {
     background-color: cornflowerblue;
+    height: 1.3em;
 }
 
 .form-control {
@@ -45,6 +46,15 @@
     right: 1%;
     top: 15%;
     border: 1px solid cornflowerblue;
+}
+
+.subDiva {
+    text-decoration: none;
+    color: white;
+}
+
+.subDiva:hover {
+    text-decoration: none;
 }
 
 .vote {
