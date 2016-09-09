@@ -1,67 +1,33 @@
-var express = require("express"),
-    app     = express(),
-    bodyParser = require("body-parser"),
-    mongoose = require("mongoose"),
-    mongo = require("mongodb");
+var express     = require("express"),
+    app         = express(),
+    bodyParser  = require("body-parser"),
+    mongoose    = require("mongoose"); 
     
 
-app.use(bodyParser.urlencoded({extended: true}));
-
-    
-var userSchema = new mongoose.Schema({
-    username: String,
-    password: String
-});
-
-var User = mongoose.model("User", userSchema);
-    
-
-var commentSchema = new mongoose.Schema({
-   text: String,
-   author: {
-       id: {
-           type: mongoose.Schema.Types.ObjectId,
-           ref: "User"
-       },
-       username: String
-   }
-});
-
-var Comment = mongoose.model("Comment", commentSchema);
-
-
-
-var postSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        username: String
-    },
-    comments: [
-        {
-            types: mongoose.Schema.Types.ObjectId,
-            ref: "Comment"
-        }
-    
-    ]
-});
-        
-var Post = mongoose.model("Post", postSchema);
-
-
+mongoose.connect("mongodb://localhost/project1"); //will try to find project1 db - Won't find it, thus will create it
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get("/", function(req, res){
-   res.render("index");
+   res.render("index"); 
 });
 
+app.get("/posts", function(req, res){
+   res.render("posts"); 
+});
+
+app.post("/posts", function(req, res){
+    
+});
+
+
+app.get("*", function(req, res) {
+    res.send("Page not found!");
+})
 
 app.listen(process.env.PORT, process.env.IP, function(req, res){
-    console.log("Server successfully running...");
+    console.log("Server is now running!");
 });
+    
