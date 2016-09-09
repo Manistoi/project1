@@ -26,6 +26,9 @@
     font-family: 'Audiowide', cursive;
 }
 
+.subDiv {
+    background-color: cornflowerblue;
+}
 
 .form-control {
     height: auto;
@@ -41,6 +44,7 @@
     position: absolute;
     right: 1%;
     top: 15%;
+    border: 1px solid cornflowerblue;
 }
 
 .vote {
